@@ -12,6 +12,14 @@ dist
 dist-ssr
 *.local
 
+# Secrets
+src/lib/supabase.js
+.env
+.env.*
+
+# Audio di root saja (public/music.mp3 tetap di-track)
+/music.mp3
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

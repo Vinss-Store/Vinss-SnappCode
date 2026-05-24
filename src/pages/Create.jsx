@@ -10,24 +10,31 @@ function Create() {
   const [author, setAuthor] = useState("");
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
 
   async function uploadSnippet(e) {
     e.preventDefault();
     setLoading(true);
+    setError("");
+    setSuccess(false);
 
     const slug = title.toLowerCase().replaceAll(" ", "-") + "-" + Date.now();
     const { data: { user } } = await supabase.auth.getUser();
 
-    await supabase.from("snippets").insert([{
+    const { error: insertError } = await supabase.from("snippets").insert([{
       title,
       slug,
       code,
       language,
       tags: tags.split(",").map(t => t.trim()).filter(Boolean),
-      author_name: user ? "Admin" : (author.trim() || "Anonymous"),
-      is_admin: !!user,
       views: 0
     }]);
+
+    if (insertError) {
+      setError("Gagal upload: " + insertError.message);
+      setLoading(false);
+      return;
+    }
 
     setSuccess(true);
     setLoading(false);
@@ -55,6 +62,12 @@ function Create() {
             <Link to="/" style={{ color: "var(--green)", fontWeight: 600, textDecoration: "underline" }}>
               Lihat di Home →
             </Link>
+          </div>
+        )}
+
+        {error && (
+          <div className="alert-error">
+            <span>⚠</span> {error}
           </div>
         )}
 

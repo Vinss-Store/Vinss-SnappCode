@@ -4,6 +4,7 @@ import { supabase } from "./lib/supabase";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import AudioPlayer from "./components/AudioPlayer";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 import Home from "./pages/Home";
@@ -93,6 +94,7 @@ function App() {
         </main>
 
         <Footer />
+        <AudioPlayer />
 
       </div>
     </BrowserRouter>
