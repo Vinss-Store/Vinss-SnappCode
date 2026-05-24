@@ -206,17 +206,44 @@ html.light .navbar { background: rgba(244,244,248,0.88); }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  .navbar { padding: 0 20px; }
-  .container, .container-sm { padding: 32px 20px; }
-  .hero { padding: 52px 0 36px; }
-  .form-card, .login-card { padding: 24px; }
-  .footer { padding: 24px 20px; }
-  .footer-inner { flex-direction: column; align-items: flex-start; }
-  .hero-stats { gap: 20px; }
+  .navbar { padding: 0 16px; }
+  .container, .container-sm { padding: 24px 16px; }
+  .hero { padding: 40px 0 28px; }
+  .hero h1 { font-size: clamp(28px, 8vw, 44px); letter-spacing: -1.5px; }
+  .hero p { font-size: 14px; margin-bottom: 28px; }
+  .hero-badge { font-size: 10px; padding: 4px 12px; margin-bottom: 20px; }
+  .hero-stats { gap: 16px; }
+  .hero-stat-num { font-size: 18px; }
+  .hero-divider { height: 24px; }
+  .search-wrap { margin-bottom: 24px; }
+  .search { font-size: 14px; padding: 11px 14px 11px 40px; }
+  .list-card { padding: 13px 14px; gap: 12px; }
+  .list-card-icon { width: 36px; height: 36px; border-radius: 8px; }
+  .list-card-title { font-size: 13px; }
+  .list-card-lang { font-size: 10px; }
+  .tag { font-size: 10px; padding: 2px 7px; }
+  .form-card, .login-card { padding: 20px 16px; }
+  .footer { padding: 20px 16px; }
+  .footer-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .footer-links { gap: 6px; }
+  .footer-link { padding: 6px 10px; font-size: 12px; }
+  .dashboard-header { flex-direction: column; align-items: flex-start; }
+  .detail-header h1 { font-size: clamp(20px, 6vw, 28px); letter-spacing: -0.5px; }
+  .detail-actions { gap: 6px; }
+  .btn { padding: 8px 14px; font-size: 13px; }
+  .audio-player { bottom: 16px; right: 16px; }
 }
+
 @media (max-width: 640px) {
   .desktop-nav { display: none; }
   .mobile-nav-right { display: flex; }
   .navbar { position: relative; }
+}
+
+@media (max-width: 380px) {
+  .container, .container-sm { padding: 20px 12px; }
+  .hero h1 { font-size: 26px; letter-spacing: -1px; }
+  .list-card { padding: 11px 12px; gap: 10px; }
+  .list-card-icon { width: 32px; height: 32px; }
 }
 
