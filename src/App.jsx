@@ -5,6 +5,7 @@ import { supabase } from "./lib/supabase";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import AudioPlayer from "./components/AudioPlayer";
+import WelcomeModal from "./components/WelcomeModal";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 import Home from "./pages/Home";
@@ -95,6 +96,7 @@ function App() {
 
         <Footer />
         <AudioPlayer />
+        <WelcomeModal />
 
       </div>
     </BrowserRouter>
