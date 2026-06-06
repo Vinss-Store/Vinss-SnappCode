@@ -18,8 +18,22 @@ function Create() {
     setError("");
     setSuccess(false);
 
-    const slug = title.toLowerCase().replaceAll(" ", "-") + "-" + Date.now();
-    const { data: { user } } = await supabase.auth.getUser();
+    // Buat slug bersih dari judul saja
+    const baseSlug = title
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9\s-]/g, "")
+      .replace(/\s+/g, "-")
+      .replace(/-+/g, "-");
+
+    // Cek kalau slug sudah ada, baru tambah angka
+    const { data: existing } = await supabase
+      .from("snippets")
+      .select("slug")
+      .eq("slug", baseSlug)
+      .maybeSingle();
+
+    const slug = existing ? `${baseSlug}-${Math.floor(Math.random() * 9000) + 1000}` : baseSlug;
 
     const { error: insertError } = await supabase.from("snippets").insert([{
       title,
