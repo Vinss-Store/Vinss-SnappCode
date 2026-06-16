@@ -41,6 +41,7 @@ function Create() {
       code,
       language,
       tags: tags.split(",").map(t => t.trim()).filter(Boolean),
+      author_name: author.trim() || "Anonymous",
       views: 0
     }]);
 
