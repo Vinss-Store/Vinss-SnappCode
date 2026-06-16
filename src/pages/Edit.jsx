@@ -45,6 +45,7 @@ function Edit() {
         tags: typeof snippet.tags === "string"
           ? snippet.tags.split(",").map(t => t.trim()).filter(Boolean)
           : snippet.tags,
+        author_name: snippet.author_name || "Anonymous",
       })
       .eq("id", snippet.id);
 
